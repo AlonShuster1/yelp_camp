@@ -56,25 +56,6 @@ Install dependencies:
 npm install
 ```
 
-Create the required environment variables in a `.env` file.
-
-For example:
-
-```env
-DATABASE_URL=your_mongodb_connection_string
-SESSION_SECRET=your_session_secret
-```
-
-Additional environment variables may be required as development continues.
-
-Start the application:
-
-```bash
-npm start
-```
-
-Then open the local development URL shown in the terminal.
-
 ## Notes
 
 The application is evolving as I continue adding features, refactoring existing code, and improving the overall user experience.
