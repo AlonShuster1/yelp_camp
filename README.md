@@ -46,7 +46,7 @@ Through this project, I’m practicing how to structure and connect the differen
 Clone the repository:
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/AlonShuster1/yelp_camp.git
 cd YelpCamp
 ```
 
