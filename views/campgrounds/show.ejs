@@ -1,7 +1,7 @@
 <% layout('layouts/boilerplate') %>
 
 <div class="row">
-  <div class="col-6 offset-3">
+  <div class="col-6">
     <div class="card">
       <img src="<%= campground.image %>" class="card-img-top" alt="..." />
       <div class="card-body">
@@ -38,9 +38,40 @@
         </div>
       </div>
     </div>
+    
+  </div>
+  <div class="col-6">
+    <div>
+      <h2>Leave a Review</h2>
+      <form action="/campgrounds/<%= campground._id %>/reviews" method="POST" class="mb-3 needs-validation" novalidate>
+        <div class="mb-3">
+          <label class="form-label" for="rating">Rating</label>
+          <input class="form-range" type="range" id="rating" name="review[rating]" min="1" max="5" step="1">
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="body">Review</label>
+          <textarea class="form-control" rows="3" cols="40" id="body" name="review[body]" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+
+      <div class="card mb-3">
+        <% if (campground.reviews.length === 0) { %>
+          <p>No reviews yet. Be the first to leave a review!</p>
+        <% } else { %>
+          <p><%= campground.reviews.length %> review(s)</p>
+        <% } %>
+        <% campground.reviews.forEach(review => { %>
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-text"><strong>Rating:</strong> <%= review.rating %></h5>
+              <p class="card-text"><%= review.body %></p>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+
+    </div>
   </div>
 </div>
 
-<footer>
-  <h3><a href="/campgrounds">go back home</a></h3>
-</footer>
